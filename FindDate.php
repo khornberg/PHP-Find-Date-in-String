@@ -3,6 +3,7 @@
  * Find Date in a String
  *
  * @author   Etienne Tremel
+ * @internal  Modified by Kyle Hornberg
  * @license  http://creativecommons.org/licenses/by/3.0/ CC by 3.0
  * @link     http://www.etiennetremel.net
  *
@@ -87,7 +88,7 @@ class FindDate {
 	            case 'MDYYYY':
 	            	break;
 	        }
-var_dump($matches);
+
 		//Match month name:
 		preg_match( '/(' . implode( '|', $this->month_names ) . ')/i', $string, $matches_month_word );
 		if ( $matches_month_word ) {
@@ -145,4 +146,3 @@ var_dump($matches);
 			return $date;
 	}
 }
-?>

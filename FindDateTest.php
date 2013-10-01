@@ -46,6 +46,9 @@ class FindDateTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array('day' => '12', 'month' => '10', 'year' => '1850', 'meridiem' => 'A'), $this->object->find('This is a test 1850.10.12A. Will it work?'));
         $this->assertEquals(array('day' => '05', 'month' => '12', 'year' => '1985', 'meridiem' => 'AM'), $this->object->find('This is a test 85 12 5AM. Will it work?'));
         $this->assertEquals(array('day' => '05', 'month' => '10', 'year' => '2012', 'meridiem' => 'PM'), $this->object->find('This is a test 2012 October 5PM. Will it work?'));
+        $this->assertEquals(array('day' => '05', 'month' => '10', 'year' => '2012', 'meridiem' => 'p'), $this->object->find('This is a test 20121005p. Will it work?'));
+        $this->assertEquals(array('day' => '01', 'month' => '04', 'year' => '2012', 'meridiem' => 'a'), $this->object->find('20120401a.mp3'));
+        $this->assertEquals(array('day' => '01', 'month' => '04', 'year' => '2012', 'meridiem' => 'a'), $this->object->find('20120401a1.mp3'));
         // Fails with th at end
         // $this->assertEquals(array('day' => '05', 'month' => '05', 'year' => '1985', 'meridiem' => 'morning'), $this->object->find('This is a test 1985 MAY 5th morning. Will it work?'));
         // $this->assertEquals(array('day' => '01', 'month' => '03', 'year' => '1981', 'meridiem' => 'Evening'), $this->object->find('This is a test 81 March 1st Evening. Will it work?'));
@@ -64,6 +67,8 @@ class FindDateTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array('day' => '12', 'month' => '10', 'year' => '1850', 'meridiem' => 'A'), $this->object->find('This is a test 1850.10.12A. Will it work?'));
         $this->assertEquals(array('day' => '05', 'month' => '12', 'year' => '1985', 'meridiem' => 'AM'), $this->object->find('This is a test 85 12 5AM. Will it work?'));
         $this->assertEquals(array('day' => '05', 'month' => '10', 'year' => '2012', 'meridiem' => 'PM'), $this->object->find('This is a test 2012 October 5PM. Will it work?'));
+        $this->assertEquals(array('day' => '05', 'month' => '10', 'year' => '2012', 'meridiem' => 'p'), $this->object->find('This is a test 20121005p. Will it work?'));
+        $this->assertEquals(array('day' => '05', 'month' => '10', 'year' => '2012', 'meridiem' => 'a'), $this->object->find('20121005a.mp3'));
 
         $this->object->format = 'DDMMYYYY';
         $this->assertEquals(array('day' => '01', 'month' => '01', 'year' => '2012', 'meridiem' => ''), $this->object->find('This is a test 01/01/2012. Will it work?'));
